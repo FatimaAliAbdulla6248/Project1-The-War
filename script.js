@@ -8,20 +8,27 @@ const cards = ["dA","dK","dQ","dJ","d10","d09","d08","d07","d06","d05","d04","d0
 
 
 //split deck in half and randomize deck for two players
- const Playerdeck=[];
+//Each player has to have 26 cards
 
-
- for (let i = Playerdeck.length - 26; i < 1; i++) {
-    let j = Math.floor(Math.random() * i);
-    let temp = Playerdeck[i];
-    deck[i] = Playerdeck[j];
-    deck[j] = temp;
+//Player cards
+ 
+let Playerdeck = [];
+while(Playerdeck.length < 26){
+    let i = Math.floor(Math.random() * 52) + 1;
+    if(Playerdeck.indexOf(cards[i]) === -1) Playerdeck.push(cards[i]);
 }
+console.log(`${Playerdeck}`);
+ 
 
-for (let i = 0; i < 27; i++) {
-    console.log(`${Playerdeck}`)
+//Dealer cards
+let Dealerdeck = [];
+for(i=0 ; Dealerdeck.length < 26 ;i++){
+    let i = Math.floor(Math.random() * 52) + 1;
+    if(Dealerdeck.indexOf(cards[i]) === -1) Dealerdeck.push(cards[i]);
 }
+console.log(`${Dealerdeck}`);
 
+//I just change the file 
 // Add event listeners to your html buttons/cards
 
 
@@ -29,10 +36,10 @@ for (let i = 0; i < 27; i++) {
 
 
 // create functions for each event listener
+//compare the cards function 
+//score the winner function 
+
 // for ex. cardClick ---> compare the two cards, find winner, add score point, change css/card image class
 
 //resetbutton
-
-
-
 
