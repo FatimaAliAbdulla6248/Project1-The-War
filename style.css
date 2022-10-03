@@ -1,0 +1,33 @@
+body{
+    text-align: center;
+    border: 10px solid black;
+    width: 90vw;
+    height: 80vh;   
+    
+    justify-content:space-between;
+}
+
+.Dealer{
+    border: black solid 5px;
+    width : 500px;
+    height: 400px;
+    background-color: darksalmon;
+  
+}
+
+.Player{
+    border: black solid 5px;
+    width : 500px;
+    height: 400px;
+    background-color: darkcyan; 
+     
+}
+
+
+div {
+    height: 200px; ;
+    width: 200px;
+}
+/*Background img
+/*  https://png.pngtree.com/thumb_back/fh260/background/20200528/pngtree-gaming-black-gold-playing-cards-background-image_336962.jpg
+/* https://t3.ftcdn.net/jpg/02/76/29/70/360_F_276297089_WyP8nNMqA3ymVk5PnKPPZ3qvTsje6DPT.jpg
