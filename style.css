@@ -1,33 +1,40 @@
 body{
+    color:white;
     text-align: center;
-    border: 10px solid black;
+    /*border: 10px solid black;*/
     width: 90vw;
     height: 80vh;   
+    background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20200528/pngtree-gaming-black-gold-playing-cards-background-image_336962.jpg");
+    justify-content:space-between;   
+}
+
+div {
+    height: 200px; 
+    width: 200px;
+     
     
-    justify-content:space-between;
 }
 
 .Dealer{
+     color: black;
     border: black solid 5px;
     width : 500px;
     height: 400px;
-    background-color: darksalmon;
+   background-color: white;
   
 }
 
 .Player{
+    color: black;
     border: black solid 5px;
     width : 500px;
     height: 400px;
-    background-color: darkcyan; 
+    background-color: white;
      
 }
 
 
-div {
-    height: 200px; ;
-    width: 200px;
-}
+
 /*Background img
 /*  https://png.pngtree.com/thumb_back/fh260/background/20200528/pngtree-gaming-black-gold-playing-cards-background-image_336962.jpg
 /* https://t3.ftcdn.net/jpg/02/76/29/70/360_F_276297089_WyP8nNMqA3ymVk5PnKPPZ3qvTsje6DPT.jpg
