@@ -30,7 +30,7 @@ console.log(playerDeck)
 
 let dealerDeckindex=1;
 let playerDeckindex=1;
-let currentcard=document.getElementsByClassName('up card d09 ')
+let currentcard=document.getElementById('current card ')
 
 // Add event listeners to your html buttons/cards
 // pick a random card from player deck
@@ -42,11 +42,7 @@ let currentcard=document.getElementsByClassName('up card d09 ')
 function flipNewCard(){
     currentcard.setAttribute("src",dealerDeck[dealerDeckindex])
     dealerDeckindex++
-    if (dealerDeckindex>26){dealerDeckindex=0;}
-
-
-
-    
+    if (dealerDeckindex>26){dealerDeckindex=0;}   
     
 }
 
