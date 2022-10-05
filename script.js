@@ -1,5 +1,5 @@
 
-// need the full deck of cards
+//  full deck of cards
 //Total cards=52
 
 //const cards = {"dA":11 ,"dK":12,"dQ":13,"dJ":14,"d10":10,"d09":9,"d08":8,"d07":7,"d06":6,"d05":5,"d04":4,"d03":3,"d02":2,
@@ -28,19 +28,27 @@ while(dealerDeck.length>26){
 console.log(dealerDeck)
 console.log(playerDeck)
 
+let dealerDeckindex=1;
+let playerDeckindex=1;
+let currentcard=document.getElementsByClassName('up card d09 ')
 
- 
- 
 // Add event listeners to your html buttons/cards
-//function flipNewCard(e){
-    //console.log(e.target)
-    // pick a random card from player deck
+// pick a random card from player deck
    // let playerCardUp = ??????
     // add that card to the up deck for player
     // pick a random card from dealer deck
     //let dealerCardUp = ??????
     // add that card to the up deck for dealer
-//}
+function flipNewCard(){
+    currentcard.setAttribute("src",dealerDeck[dealerDeckindex])
+    dealerDeckindex++
+    if (dealerDeckindex>26){dealerDeckindex=0;}
+
+
+
+    
+    
+}
 
 let drawDecks = document.querySelectorAll('.back-red')
 drawDecks.forEach(deck=>deck.addEventListener("click", flipNewCard))
@@ -59,4 +67,3 @@ drawDecks.forEach(deck=>deck.addEventListener("click", flipNewCard))
 // for ex. cardClick ---> compare the two cards, find winner, add score point, change css/card image class
 
 //resetbutton
-
