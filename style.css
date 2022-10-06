@@ -16,20 +16,20 @@ div {
 }
 
 .Dealer{
-     color: black;
-    border: black solid 5px;
+     color: white;
+    border:black  solid 5px;
     width : 500px;
     height: 400px;
-   background-color: white;
+    
   
 }
 
 .Player{
-    color: black;
+    color: white;
     border: black solid 5px;
     width : 500px;
     height: 400px;
-    background-color: white;
+     
      
 }
 
