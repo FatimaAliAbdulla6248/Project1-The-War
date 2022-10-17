@@ -16,22 +16,32 @@
 //Each player has to have 26 cards
 
 
-let dealerDeck = cards
+let dealerDeck = [...cards]
 let playerDeck = []
-while(dealerDeck.length>26){
-    // pick a random number between 0 and dealerDeck.length
-    let randomIndex=Math.floor(Math.random()*dealerDeck.length)
-    // splice out the card at dealerDeck[randumNum]
-    let randomCard=dealerDeck.splice(randomIndex,1)
-    // push that card into playerDeck
-    playerDeck.push(randomCard[0])
+function shuffle(){
+    while(dealerDeck.length>26){
+        // pick a random number between 0 and dealerDeck.length
+        let randomIndex=Math.floor(Math.random()*dealerDeck.length)
+        // splice out the card at dealerDeck[randumNum]
+        let randomCard=dealerDeck.splice(randomIndex,1)
+        // push that card into playerDeck
+        playerDeck.push(randomCard[0])
+    }
 }
+shuffle()
 console.log(dealerDeck)
 console.log(playerDeck)
 
 //Flip new card function 
 let playercard =document.querySelector('#CurrentCardP')//html id
 let dealercard =document.querySelector('#CurrentCardD')//html id
+let resetBtn = document.querySelector('.Reset')
+resetBtn.addEventListener('click', reset)
+
+
+//Add event listener to click the back red card 
+let drawDecks = document.querySelectorAll('.back-red')
+drawDecks.forEach(deck=>deck.addEventListener("click", flipNewCard))
 
 //Score & comparison part 
         let playerScore=0
@@ -60,24 +70,52 @@ let dealercard =document.querySelector('#CurrentCardD')//html id
         dealerDeck.shift()
 
         
-        //compare the cards
-         
+        //compare the cards  
+        //  debugger
         if(cardsobjects[playerDeck[0]]>cardsobjects[dealerDeck[0]]){
             playerScore++
             displayplayerscore.innerText=`Score:${playerScore}`
         }
-            else {(cardsobjects[dealerDeck[0]]>cardsobjects[playerDeck[0]])
-                dealerScore++
-                displaydealerscore.innerText=`Score:${dealerScore}`
+        else if (cardsobjects[dealerDeck[0]]>cardsobjects[playerDeck[0]]) {
+            dealerScore++
+            displaydealerscore.innerText=`Score:${dealerScore}`
         } 
-    
+        // if cards value are equal
+        if(cardsobjects[playerDeck[0]]==cardsobjects[dealerDeck[0]]){
+            let drawDecks = document.querySelectorAll('.back-red')
+            drawDecks.forEach(deck=>deck.addEventListener("click", flipNewCard))
+          
+        }
+        checkWinner()
 }
-    
+let winningMsg = document.getElementById('winningMsg')
+function checkWinner(){
+   if (dealerDeck.length == 0 || playerDeck.length == 0) {
+    if (playerScore > dealerScore) {
+        console.log('player One wins!')
+        winningMsg.innerText = 'Player Wins!'
+    } else {
+        console.log('dealer wins!')
+        winningMsg.innerText = 'Dealer Wins!'
+    }
+    drawDecks.forEach(deck=>deck.removeEventListener("click", flipNewCard))
+   }
+}
 
- 
-//Add event listener to click the back red card 
-let drawDecks = document.querySelectorAll('.back-red')
-drawDecks.forEach(deck=>deck.addEventListener("click", flipNewCard))
- 
+
 
 //resetbutton
+function reset(){
+    console.log('new game!')
+    dealerDeck = [...cards]
+    playerDeck = []
+    playerScore = 0;
+    dealerScore = 0;
+    displayplayerscore.innerText= '0'
+    displaydealerscore.innerText= '0'
+    playercard.className = 'card back-red'
+    dealercard.className='card back-red'
+    drawDecks.forEach(deck=>deck.addEventListener("click", flipNewCard))
+    shuffle();
+
+}
